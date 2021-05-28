@@ -20,9 +20,9 @@ func generateRandomNumbers() -> [Int] {
  */
 // 다시 보니 의미가 불분명한 함수라는 생각이 드네요. printRandomNumbers라는 이름으로 바꾸고, 매개변수명도 randomNumbers로 바꾸는 건 어떨까 생각해요.
 // Steven, 더 좋은 예시가 생각나시면 말씀해주세요!
-func printRandomNumbers(randomNumbers: [Int]) {
+func print(Numbers: [Int]) {
     
-    print("임의의 수 : \(randomNumbers.map{String($0)}.joined(separator: " "))")
+    print("임의의 수 : \(randomNumbers.map{ number in String(number)}.joined(separator: " "))")
 }
 
 //print(random: )
@@ -86,8 +86,9 @@ func printWinner(name: String) {
 func checkGameOver(gameCount: Int, userWin: Bool) {
     if gameCount > 0 && !userWin {
         print("남은 기회 : \(gameCount)")
-    }
-    else if gameCount == 0 {
+    } else if gameCount > 0 && userWin {
+        print("남은 기회 : \(gameCount)")
+    } else if gameCount == 0 && !userWin {
         print("남은 기회 : \(gameCount)")
         printWinner(name: "컴퓨터")
     }
